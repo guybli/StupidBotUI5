@@ -1,0 +1,27 @@
+<mvc:View controllerName="UI5ChatBot.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="Your Quick Start application is ready!">
+				<content>
+	<List
+		showSeparators="Inner"
+		items="{/EntryCollection}" >
+		<FeedListItem
+			sender="{Author}"
+			icon="{AuthorPicUrl}"
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			iconDensityAware="false"
+			info="{Type}"
+			timestamp="{Date}"
+			text="{Text}" />
+	</List>
+	<FeedInput
+		post="onPost"
+		icon="test-resources/sap/m/images/dronning_victoria.jpg"
+		class="sapUiSmallMarginTopBottom" />
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

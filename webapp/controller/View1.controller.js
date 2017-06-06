@@ -22,9 +22,22 @@ sap.ui.define([
 			});
 			var oTest = new JSONModel();
 			oTest.loadData("model/feed.json");
-			oTest.attachRequestCompleted(function() {
+			oTest.attachRequestCompleted(oTest,function() {
 
-				this._getNextQuesiton();
+						var oModel = this.getView().getModel();
+			var oFormat = DateFormat.getDateTimeInstance({
+				style: "medium"
+			});
+			var oEntry = oTest.getData().EntryCollection.pop() ;
+			var oDate = new Date();
+			var sDate = oFormat.format(oDate);
+				var aEntries = oModel.getData().EntryCollection;
+			var ilength = oModel.getData().EntryCollection.length;
+			aEntries.unshift(oEntry);
+			oModel.setData({
+				EntryCollection: aEntries
+			});
+
 
 			});
 
@@ -38,6 +51,8 @@ sap.ui.define([
 			var oModel = new JSONModel(oEntryCollection);
 			this.getView().setModel(oTest, "reference");
 			this.getView().setModel(oModel);
+			
+			
 
 		},
 
@@ -52,7 +67,7 @@ sap.ui.define([
 			var sValue = oEvent.getParameter("value");
 			var oEntry = {
 				Author:  oUser.firstName + " " + oUser.lastName ,
-				AuthorPicUrl: "http://upload.wikimedia.org/wikipedia/commons/a/aa/Dronning_victoria.jpg",
+				AuthorPicUrl: "./images/aw.jpeg",
 				Type: "Reply",
 				Date: "" + sDate,
 				Text: sValue
@@ -61,13 +76,12 @@ sap.ui.define([
 			// update model
 			var oModel = this.getView().getModel();
 			var aEntries = oModel.getData().EntryCollection;
-			var ilength = oModel.getData().EntryCollection.length;
 			aEntries.unshift(oEntry);
 			oModel.setData({
 				EntryCollection: aEntries
 			});
 
-			this._getNextQuesiton(oEvent, ilength);
+			this._getNextQuesiton(oEvent);
 		},
 
 
@@ -77,10 +91,10 @@ sap.ui.define([
 			var oFormat = DateFormat.getDateTimeInstance({
 				style: "medium"
 			});
-
+			
 			var oTest = this.getView().getModel("reference");
 
-			var oEntry = oTest.getData().EntryCollection.pop;
+			var oEntry = oTest.getData().EntryCollection.pop() ;
 			//	oTest.setData("index",index++);
 			var oDate = new Date();
 			var sDate = oFormat.format(oDate);

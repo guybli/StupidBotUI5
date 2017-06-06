@@ -18,7 +18,7 @@
 	</List>
 	<FeedInput
 		post="onPost"
-		icon="test-resources/sap/m/images/dronning_victoria.jpg"
+		icon="./images/aw.jpeg"
 		class="sapUiSmallMarginTopBottom" />
 				</content>
 			</Page>

@@ -11,13 +11,17 @@ sap.ui.define([
 	return Controller.extend("UI5ChatBot.controller.View1", {
 
 		onInit: function() {
+// set user model
+	var userModel = new sap.ui.model.json.JSONModel("/services/userapi/currentUser");
+		this.getView().setModel(userModel, "userapi");
+
 			// set mock model
 
 			var oFormat = DateFormat.getDateTimeInstance({
 				style: "medium"
 			});
 			var oTest = new JSONModel();
-			oTest.loadData("feed.json");
+			oTest.loadData("model/feed.json");
 			oTest.attachRequestCompleted(function() {
 
 				this._getNextQuesiton();
@@ -41,12 +45,13 @@ sap.ui.define([
 			var oFormat = DateFormat.getDateTimeInstance({
 				style: "medium"
 			});
+			var oUser =  this.getView().getModel("userapi").getData();
 			var oDate = new Date();
 			var sDate = oFormat.format(oDate);
 			// create new entry
 			var sValue = oEvent.getParameter("value");
 			var oEntry = {
-				Author: "Alexandrina Victoria",
+				Author:  oUser.firstName + " " + oUser.lastName ,
 				AuthorPicUrl: "http://upload.wikimedia.org/wikipedia/commons/a/aa/Dronning_victoria.jpg",
 				Type: "Reply",
 				Date: "" + sDate,

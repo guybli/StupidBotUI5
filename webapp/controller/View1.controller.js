@@ -127,9 +127,15 @@ sap.ui.define([
 				error: function(jqXHR, textStatus, errorThrown) {
 					MessageToast.show(jqXHR.responseText,{duration:3000}); //, "ERROR", "Service call error");
 					aEntries = oModel.getData().EntryCollection;
+				
 					
-				oEntry.Date = sDate;
-				oEntry.Typr = "Reply";
+					 	oEntry = {
+				Author:  "WolframAlpha" ,
+				AuthorPicUrl: "./images/wolfy.png",
+				Type: "Reply",
+				Date: "" + sDate,
+				Text: "Sorry, I can't answer that question Dave" };
+					
 				}
 			}, this);
 			} catch (err) {

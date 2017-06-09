@@ -25,7 +25,14 @@
 				"type": "service",
 				"name": "userapi"
 			}
-    }
+    },
+      {
+      "path": "/wolf",
+      "target": {
+        "type": "destination",
+        "name": "wolf"
+      }
+      }
   ],
   "sendWelcomeFileRedirect": true
 }

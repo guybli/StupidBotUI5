@@ -1,28 +1,35 @@
 {
 	"EntryCollection" : [{
-		"Author" : "Alexandrina Victoria",
-		"AuthorPicUrl" : "test-resources/sap/m/images/dronning_victoria.jpg",
-		"Type" : "Request",
-		"Date" : "March 03 2013",
-		"Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, seddiamnonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+		"Author" : "AW Bot",
+		"AuthorPicUrl": "/webapp/images/wolfy.png",
+		"Type": "Reply",
+		"Date" : "",
+		"Text" : "Ok, I'm here if you need me"
+	},
+	{
+		"Author" : "AW Bot",
+		"AuthorPicUrl": "/webapp/images/wolfy.png",
+		"Type": "Reply",
+		"Date" : "",
+		"Text" : "it will take you 03h36m by car, but I see that there are flights avilable that take 01h00m, would you like to know more?"
 	}, {
-		"Author" : "George Washington",
-		"AuthorPicUrl" : "test-resources/sap/m/images/george_washington.jpg",
-		"Type" : "Reply",
-		"Date" : "March 04 2013",
-		"Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore"
+		"Author" : "AW Bot",
+		"AuthorPicUrl": "/webapp/images/wolfy.png",
+		"Type": "Reply",
+		"Date" : "",
+		"Text" : "it's 200 miles from your currently location to Agilityworks Manchester Office, 127 Portland Street, Manchester, M4 1PZ"
 	}, {
-		"Author" : "Alexandrina Victoria",
-		"AuthorPicUrl" : "test-resources/sap/m/images/dronning_victoria.jpg",
-		"Type" : "Request",
-		"Date" : "March 05 2013",
-		"Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"
+		"Author" : "AW Bot",
+		"AuthorPicUrl": "/webapp/images/wolfy.png",
+		"Type": "Reply",
+		"Date" : "",
+		"Text" : "you have 2 surveys today: Site Survey at AW Oxford, Damage Survey at AW Manchester,  "
 	}, {
-		"Author" : "George Washington",
-		"AuthorPicUrl" : "test-resources/sap/m/images/george_washington.jpg",
-		"Type" : "Rejection",
-		"Date" : "March 07 2013",
-		"Text" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+		"Author" : "AW Bot",
+		"AuthorPicUrl": "/webapp/images/wolfy.png",
+		"Type": "Reply",
+		"Date" : "",
+		"Text" : "Hello Gareth, how are you today?"
 	}],
 	"index":0
 }

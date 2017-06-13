@@ -1,25 +1,19 @@
-<mvc:View controllerName="UI5ChatBot.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" 	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="UI5ChatBot.controller.View1">
 	<App>
 		<pages>
-			<Page title="Your Quick Start application is ready!">
+			<Page title=" AW ChatBot" enableScrolling="false">
 				<content>
-	<List
-		showSeparators="Inner"
-		items="{/EntryCollection}" >
-		<FeedListItem
-			sender="{Author}"
-			icon="{AuthorPicUrl}"
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			iconDensityAware="false"
-			info="{Type}"
-			timestamp="{Date}"
-			text="{Text}" />
+					<l:FixFlex fixContentSize="90%" >
+		<l:fixContent>
+			<List showSeparators="Inner" items="{/EntryCollection}" growing="true" growingThreshold="9"  >
+		<FeedListItem sender="{Author}" icon="{AuthorPicUrl}" senderPress="onSenderPress" iconPress="onIconPress" iconDensityAware="false" info="{Type}" timestamp="{Date}" text="{Text}"/>
 	</List>
-	<FeedInput
-		post="onPost"
-		icon="./images/aw.jpeg"
-		class="sapUiSmallMarginTopBottom" />
+		</l:fixContent>
+		<l:flexContent>
+			<FeedInput post="onPost" icon="/webapp/images/Gareth.jpg" class="sapUiSmallMarginTopBottom"/>
+	
+		</l:flexContent>
+	</l:FixFlex>
 				</content>
 			</Page>
 		</pages>

@@ -21,7 +21,7 @@ sap.ui.define([
 				style: "medium"
 			});
 			var oTest = new JSONModel();
-			oTest.loadData("model/feed.json");
+			oTest.loadData("/webapp/model/feed.json");
 			oTest.attachRequestCompleted(oTest,function() {
 
 						var oModel = this.getView().getModel();
@@ -66,8 +66,8 @@ sap.ui.define([
 			// create new entry
 			var sValue = oEvent.getParameter("value");
 			var oEntry = {
-				Author:  oUser.firstName + " " + oUser.lastName ,
-				AuthorPicUrl: "./images/aw.jpeg",
+				Author:  oUser.username ,
+				AuthorPicUrl: "/webapp/images/Gareth.jpg",
 				Type: "Reply",
 				Date: "" + sDate,
 				Text: sValue
@@ -95,15 +95,20 @@ sap.ui.define([
 			var oTest = this.getView().getModel("reference");
 
 			var oEntry = oTest.getData().EntryCollection.pop() ;
+			oEntry.AuthorPicUrl = "/webapp/images/aw.jpeg";                 
 			//	oTest.setData("index",index++);
 			var oDate = new Date();
 			var sDate = oFormat.format(oDate);
 				var aEntries = oModel.getData().EntryCollection;
 			var ilength = oModel.getData().EntryCollection.length;
-			aEntries.unshift(oEntry);
+			jQuery.sap.delayedCall(2000, this, function() {
+				aEntries.unshift(oEntry);
 			oModel.setData({
 				EntryCollection: aEntries
 			});
+			});
+
+		
 
 
 		}

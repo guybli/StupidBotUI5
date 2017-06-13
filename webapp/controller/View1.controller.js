@@ -1,5 +1,5 @@
 sap.ui.define([
-	
+
 	'jquery.sap.global',
 	'sap/m/MessageToast',
 	'sap/ui/core/format/DateFormat',
@@ -11,9 +11,9 @@ sap.ui.define([
 	return Controller.extend("UI5ChatBot.controller.View1", {
 
 		onInit: function() {
-// set user model
-	var userModel = new sap.ui.model.json.JSONModel("/services/userapi/currentUser");
-		this.getView().setModel(userModel, "userapi");
+			// set user model
+			var userModel = new sap.ui.model.json.JSONModel("/services/userapi/currentUser");
+			this.getView().setModel(userModel, "userapi");
 
 			// set mock model
 
@@ -22,22 +22,21 @@ sap.ui.define([
 			});
 			var oTest = new JSONModel();
 			oTest.loadData("model/feed.json");
-			oTest.attachRequestCompleted(oTest,function() {
+			oTest.attachRequestCompleted(oTest, function() {
 
-						var oModel = this.getView().getModel();
-			var oFormat = DateFormat.getDateTimeInstance({
-				style: "medium"
-			});
-			var oEntry = oTest.getData().EntryCollection.pop() ;
-			var oDate = new Date();
-			var sDate = oFormat.format(oDate);
+				var oModel = this.getView().getModel();
+				var oFormat = DateFormat.getDateTimeInstance({
+					style: "medium"
+				});
+				var oEntry = oTest.getData().EntryCollection.pop();
+				var oDate = new Date();
+				var sDate = oFormat.format(oDate);
 				var aEntries = oModel.getData().EntryCollection;
-			var ilength = oModel.getData().EntryCollection.length;
-			aEntries.unshift(oEntry);
-			oModel.setData({
-				EntryCollection: aEntries
-			});
-
+				var ilength = oModel.getData().EntryCollection.length;
+				aEntries.unshift(oEntry);
+				oModel.setData({
+					EntryCollection: aEntries
+				});
 
 			});
 
@@ -51,8 +50,6 @@ sap.ui.define([
 			var oModel = new JSONModel(oEntryCollection);
 			this.getView().setModel(oTest, "reference");
 			this.getView().setModel(oModel);
-			
-			
 
 		},
 
@@ -60,14 +57,14 @@ sap.ui.define([
 			var oFormat = DateFormat.getDateTimeInstance({
 				style: "medium"
 			});
-			var oUser =  this.getView().getModel("userapi").getData();
+			var oUser = this.getView().getModel("userapi").getData();
 			var oDate = new Date();
 			var sDate = oFormat.format(oDate);
 			// create new entry
 			var sValue = oEvent.getParameter("value");
 			var oEntry = {
-				Author:  oUser.firstName + " " + oUser.lastName ,
-				AuthorPicUrl: "./images/aw.jpeg",
+				Author: oUser.displayName,
+				AuthorPicUrl: "/webapp/images/aw.jpeg",
 				Type: "Reply",
 				Date: "" + sDate,
 				Text: sValue
@@ -84,74 +81,69 @@ sap.ui.define([
 			this._getNextQuesiton(oEvent);
 		},
 
-
-
 		_getNextQuesiton: function(oEvent) {
-			
-		var url = "/wolf" + "/v1/result?appid=38L3WU-A34E8TKXA7&i=";
-			var command = "what+time+is+it";
+
+			var url = "/wolf" + "/v1/result?appid=38L3WU-A34E8TKXA7&i=";
 			var oModel = this.getView().getModel();
 			var oFormat = DateFormat.getDateTimeInstance({
 				style: "medium"
 			});
 			var oDate = new Date();
 			var sDate = oFormat.format(oDate);
-			
-			
+
 			var oTest = this.getView().getModel("reference");
 
 			var oEntry;
 			try {
 				// create new entry
-			var sValue = oEvent.getParameter("value");
+				var sValue = oEvent.getParameter("value");
 				var aEntries = "";
-			
-				$.ajax({
-				url: url+sValue,
-				type: "GET",
-				data: "",
-				async: false,
-				success: function(data) {
-					 	console.log("wolf: " + data);
-					 	sValue = data;
-					 	
-					 	oEntry = {
-				Author:  "WolframAlpha" ,
-				AuthorPicUrl: "./images/wolfy.png",
-				Type: "Reply",
-				Date: "" + sDate,
-				Text: sValue
-			};
-			
-				},
-				error: function(jqXHR, textStatus, errorThrown) {
-					MessageToast.show(jqXHR.responseText,{duration:3000}); //, "ERROR", "Service call error");
-					aEntries = oModel.getData().EntryCollection;
-				
-					
-					 	oEntry = {
-				Author:  "WolframAlpha" ,
-				AuthorPicUrl: "./images/wolfy.png",
-				Type: "Reply",
-				Date: "" + sDate,
-				Text: "Sorry, I can't answer that question Dave" };
-					
-				}
-			}, this);
-			} catch (err) {
-				var oEntry = oTest.getData().EntryCollection.pop() ;
-				
-			} finally {
-			var aEntries = oModel.getData().EntryCollection;
-			aEntries.unshift(oEntry);
-			oModel.setData({
-				EntryCollection: aEntries
-			});
-				
-			}
-			
-				
 
+				$.ajax({
+					url: url + sValue,
+					type: "GET",
+					data: "",
+					async: false,
+					success: function(data) {
+						console.log("wolf: " + data);
+						sValue = data;
+
+						oEntry = {
+							Author: "WolframAlpha",
+							AuthorPicUrl: "/webapp/images/wolfy.png",
+							Type: "Reply",
+							Date: "" + sDate,
+							Text: sValue
+						};
+
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						MessageToast.show(jqXHR.responseText, {
+							duration: 3000
+						}); //, "ERROR", "Service call error");
+						aEntries = oModel.getData().EntryCollection;
+
+						oEntry = {
+							Author: "WolframAlpha",
+							AuthorPicUrl: "/webapp/images/wolfy.png",
+							Type: "Reply",
+							Date: "" + sDate,
+							Text: "Sorry, I can't answer that question Dave"
+						};
+
+					}
+				}, this);
+			} catch (err) {
+				var oEntry = oTest.getData().EntryCollection.pop();
+
+			} finally {
+				var aEntries = oModel.getData().EntryCollection;
+				aEntries.unshift(oEntry);
+				oModel.setData({
+					EntryCollection: aEntries
+				});
+
+			}
 
 		}
 	});

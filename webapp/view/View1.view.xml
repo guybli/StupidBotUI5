@@ -8,7 +8,7 @@
 	<List showSeparators="Inner" items="{/EntryCollection}" growingDirection="Upwards" backgroundDesign="Translucent" growingThreshold="5">
 		<FeedListItem sender="{Author}" icon="{AuthorPicUrl}" senderPress="onSenderPress" iconPress="onIconPress" iconDensityAware="false" info="{Type}" timestamp="{Date}" text="{Text}"/>
 	</List>
-	 <FeedInput post="onPost" icon="./images/aw.jpeg" class="sapUiSmallMarginTopBottom"/>
+	 <FeedInput icon="/webapp/images/aw.jpeg" class="sapUiSmallMarginTopBottom" post="onPost"/>
 				</l:Grid>
 				</content>
 			</Page>

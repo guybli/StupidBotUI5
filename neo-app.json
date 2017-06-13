@@ -20,19 +20,35 @@
       "description": "SAPUI5 Test Resources"
     },
     {
-			"path": "/services/userapi",
-			"target": {
-				"type": "service",
-				"name": "userapi"
-			}
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
     },
-      {
+    {
       "path": "/wolf",
       "target": {
         "type": "destination",
         "name": "wolf"
       }
-      }
+    }
   ],
-  "sendWelcomeFileRedirect": true
+  "sendWelcomeFileRedirect": true,
+  "cacheControl": [
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "**.html"
+    },
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "sap-ui-cachebuster-info.json"
+    },
+    {
+      "directive": "public",
+      "maxAge": 31536000
+    }
+  ]
 }

@@ -38,5 +38,10 @@
     "loadJSONFiles": true,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
+  },
+  "hcpdeploy": {
+    "account": "a33e3b65d",
+    "name": "stupidbotui5",
+    "lastVersionWeTriedToDeploy": "1.0.1"
   }
 }
